@@ -225,7 +225,7 @@ img {
     filter: blur(4px);
   }
   100% {
-    opacity: 2;
+    opacity: 1;
     filter: blur(0);
   }
 }
@@ -275,8 +275,6 @@ img {
   text-align: center;
 }
 .btn {
-  opacity: 0;
-  filter: blur(4px);
   font-size: 20px;
   line-height: 15px;
   color: #1277a9;
@@ -287,9 +285,10 @@ img {
   cursor: pointer;
   text-decoration: none;
   transition: 0.4s;
+  /* animation: fadeIn 0.8s ease-out 3s both; */
 }
 .btn-animate {
-  animation: fadeIn 0.8s ease-out 3s forwards;
+  /* animation: fadeIn 0.8s ease-out 3s both; */
 }
 .btn:hover {
   background-color: #1277a9;
