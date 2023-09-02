@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "italianno";
+  src: url(../fonts/Italianno-Regular.ttf);
+}
+@font-face {
+  font-family: "marck-script";
+  src: url(../fonts/MarckScript-Regular.ttf);
+}
+@font-face {
+  font-family: "kristi";
+  src: url(../fonts/Kristi-Regular.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 430px;
+  margin: auto;
+
+  background: url(../img/see.png) no-repeat center bottom;
+  background-size: contain;
+
+  position: relative;
+}
+
+.page-1,
+.page-2 {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: 1s;
+}
+
+.page-1.active,
+.page-2.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.page-1 {
+  padding: 80px 0 86px;
+}
+.page-2 {
+  padding: 45px 0 75px;
+  font-family: "marck-script", cursive;
+}
+
+.letters {
+  display: flex;
+  align-items: center;
+  /* gap: 30px; */
+  justify-content: center;
+  margin-bottom: 75px;
+}
+.letters__letter {
+  width: 0;
+  height: 86px;
+  overflow: hidden;
+}
+.letters__letter img {
+  width: 71px;
+  max-width: none;
+}
+.letters__separator {
+  width: 2px;
+  height: 155px;
+  background-color: #000;
+  transform: scaleY(0);
+  animation: letters-separator 1.3s ease-out 0.5s forwards;
+}
+.letters__letter_1 {
+  transform: translateY(20px);
+  animation: letter-left 1.3s ease-out 1.8s forwards;
+}
+.letters__letter_2 {
+  transform: translateY(8px);
+  animation: letter-right 1.3s ease-out 1.8s forwards;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date,
+.words {
+  font-family: "italianno", cursive;
+  font-size: 50px;
+  line-height: 62.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  filter: blur(4px);
+}
+.date {
+  gap: 11px;
+  animation: fadeIn 0.8s ease-out 3.1s forwards;
+  cursor: pointer;
+  position: relative;
+}
+.date::after {
+  content: "";
+  transition: 0.4s;
+  position: absolute;
+  height: 1px;
+  width: 0;
+  bottom: 10px;
+  background-color: #000;
+}
+.date:hover::after {
+  width: 200px;
+}
+.words {
+  gap: 20px;
+  animation: fadeIn 0.8s ease-out 3.3s forwards;
+}
+.dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #000;
+}
+.u-mark {
+  position: relative;
+  display: inline-block;
+}
+.u-mark::before {
+  content: "''";
+  position: absolute;
+  display: inline-block;
+  top: -12px;
+  font-size: 25px;
+  font-family: "kristi", cursive;
+  transform: scaleY(-1) translateX(3px);
+  letter-spacing: -2px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes letters-separator {
+  0% {
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes letter-left {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 101px;
+  }
+}
+@keyframes letter-right {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 101px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 2;
+    filter: blur(0);
+  }
+}
+
+.row {
+  padding: 0 21px;
+  display: flex;
+  gap: 22px;
+  margin-bottom: 22px;
+  align-items: flex-start;
+  opacity: 0;
+  filter: blur(4px);
+}
+.row:nth-child(1) {
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+}
+.row:nth-child(2) {
+  animation: fadeIn 0.8s ease-out 0.6s forwards;
+}
+.row:nth-child(3) {
+  animation: fadeIn 0.8s ease-out 1s forwards;
+}
+.row:nth-child(4) {
+  animation: fadeIn 0.8s ease-out 1.4s forwards;
+}
+.row:nth-child(5) {
+  animation: fadeIn 0.8s ease-out 1.8s forwards;
+  margin-bottom: 46px;
+}
+.col-left {
+  font-size: 24px;
+}
+.col-right {
+  font-size: 20px;
+}
+.text-small {
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.airport {
+  transform: translate(81px, -9px);
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+.btn {
+  opacity: 0;
+  filter: blur(4px);
+  animation: fadeIn 0.8s ease-out 2.2s forwards;
+  font-size: 20px;
+  line-height: 15px;
+  color: #1277a9;
+  border: 1px solid #1277a9;
+  border-radius: 100px;
+  padding: 10px 32px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.btn:hover {
+  background-color: #1277a9;
+  color: #fff;
+}
