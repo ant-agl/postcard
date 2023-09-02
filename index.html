@@ -14,11 +14,13 @@
     <div class="page-1 active">
       <div class="letters">
         <div class="letters__letter letters__letter_1">
-          <img src="./img/A.png">
+          <span>A</span>
+          <!-- <img src="./img/A.png"> -->
         </div>
         <div class="letters__separator"></div>
         <div class="letters__letter letters__letter_2">
-          <img src="./img/V.png">
+          <span>V</span>
+          <!-- <img src="./img/V.png"> -->
         </div>
       </div>
       <div class="date">23 <span class="dot"></span> 11 <span class="dot"></span> 2023</div>
@@ -55,7 +57,7 @@
       </div>
       <div class="row">
         <div class="col-left">25.&nbsp;11.&nbsp;2023</div>
-        <div class="col-right">Обнимаемся и прощаемся</div>
+        <div class="col-right">Обнимаемся и<br>прощаемся</div>
       </div>
 
       <div class="center">
@@ -73,6 +75,12 @@
     date.addEventListener('click', function() {
       page1.classList.remove('active');
       page2.classList.add('active');
+
+      page2.querySelectorAll('.row').forEach(row => {
+        row.classList.add('row-animate');
+      });
+
+      page2.querySelector('.btn').classList.add('btn-animate');
     });
   </script>
 

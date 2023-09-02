@@ -10,6 +10,10 @@
   font-family: "kristi";
   src: url(../fonts/Kristi-Regular.ttf);
 }
+@font-face {
+  font-family: "constantia";
+  src: url(../fonts/ofont.ru_Constantia.ttf);
+}
 
 body {
   margin: 0;
@@ -55,42 +59,51 @@ img {
 }
 
 .page-1 {
-  padding: 80px 0 86px;
+  padding-bottom: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 .page-2 {
-  padding: 45px 0 75px;
+  padding: 45px 0 110px;
   font-family: "marck-script", cursive;
+  color: #241735;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .letters {
   display: flex;
   align-items: center;
-  /* gap: 30px; */
   justify-content: center;
-  margin-bottom: 75px;
+  margin: auto 0;
 }
 .letters__letter {
   width: 0;
   height: 86px;
   overflow: hidden;
 }
-.letters__letter img {
-  width: 71px;
-  max-width: none;
+.letters__letter span {
+  font-size: 100px;
+  padding: 0 5px;
+  font-family: "constantia", cursive;
+  color: #241735;
 }
 .letters__separator {
   width: 2px;
   height: 155px;
-  background-color: #000;
+  background-color: #241735;
   transform: scaleY(0);
   animation: letters-separator 1.3s ease-out 0.5s forwards;
 }
 .letters__letter_1 {
-  transform: translateY(20px);
+  transform: translateY(7px);
   animation: letter-left 1.3s ease-out 1.8s forwards;
 }
 .letters__letter_2 {
-  transform: translateY(8px);
+  transform: translateY(7px);
   animation: letter-right 1.3s ease-out 1.8s forwards;
   display: flex;
   justify-content: flex-end;
@@ -106,12 +119,26 @@ img {
   justify-content: center;
   opacity: 0;
   filter: blur(4px);
+  color: #241735;
 }
 .date {
   gap: 11px;
+  padding: 0 7px;
   animation: fadeIn 0.8s ease-out 3.1s forwards;
   cursor: pointer;
   position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.date::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: -100%;
+  bottom: 10px;
+  background-color: #241735;
+  animation: date-line 4s ease-in-out 3.5s infinite;
 }
 .date::after {
   content: "";
@@ -120,10 +147,10 @@ img {
   height: 1px;
   width: 0;
   bottom: 10px;
-  background-color: #000;
+  background-color: #241735;
 }
 .date:hover::after {
-  width: 200px;
+  width: 100%;
 }
 .words {
   gap: 20px;
@@ -134,7 +161,7 @@ img {
   width: 5px;
   height: 5px;
   border-radius: 10px;
-  background-color: #000;
+  background-color: #241735;
 }
 .u-mark {
   position: relative;
@@ -153,6 +180,20 @@ img {
   text-align: center;
 }
 
+@keyframes date-line {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
 @keyframes letters-separator {
   0% {
     transform: scaleY(0);
@@ -167,7 +208,7 @@ img {
     width: 0;
   }
   100% {
-    width: 101px;
+    width: 111px;
   }
 }
 @keyframes letter-right {
@@ -175,7 +216,7 @@ img {
     width: 0;
   }
   100% {
-    width: 101px;
+    width: 111px;
   }
 }
 @keyframes fadeIn {
@@ -198,21 +239,21 @@ img {
   opacity: 0;
   filter: blur(4px);
 }
-.row:nth-child(1) {
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
-}
-.row:nth-child(2) {
-  animation: fadeIn 0.8s ease-out 0.6s forwards;
-}
-.row:nth-child(3) {
+.row-animate:nth-child(1) {
   animation: fadeIn 0.8s ease-out 1s forwards;
 }
-.row:nth-child(4) {
+.row-animate:nth-child(2) {
   animation: fadeIn 0.8s ease-out 1.4s forwards;
 }
-.row:nth-child(5) {
+.row-animate:nth-child(3) {
   animation: fadeIn 0.8s ease-out 1.8s forwards;
-  margin-bottom: 46px;
+}
+.row-animate:nth-child(4) {
+  animation: fadeIn 0.8s ease-out 2.2s forwards;
+}
+.row-animate:nth-child(5) {
+  animation: fadeIn 0.8s ease-out 2.6s forwards;
+  margin-bottom: auto;
 }
 .col-left {
   font-size: 24px;
@@ -236,7 +277,6 @@ img {
 .btn {
   opacity: 0;
   filter: blur(4px);
-  animation: fadeIn 0.8s ease-out 2.2s forwards;
   font-size: 20px;
   line-height: 15px;
   color: #1277a9;
@@ -247,6 +287,9 @@ img {
   cursor: pointer;
   text-decoration: none;
   transition: 0.4s;
+}
+.btn-animate {
+  animation: fadeIn 0.8s ease-out 3s forwards;
 }
 .btn:hover {
   background-color: #1277a9;
