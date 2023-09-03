@@ -294,3 +294,48 @@ img {
   background-color: #1277a9;
   color: #fff;
 }
+
+@media (max-width: 375px) {
+  .letters__letter span {
+    font-size: 90px;
+  }
+  .date,
+  .words {
+    font-size: 35px;
+  }
+  .col-left {
+    font-size: 20px;
+  }
+  .col-right {
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+  .text-small {
+    font-size: 11px;
+    line-height: 11px;
+  }
+  .row {
+    margin-bottom: 8px;
+  }
+  .page-2 {
+    padding-top: 20px;
+  }
+  @keyframes letter-left {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 101px;
+    }
+  }
+  @keyframes letter-right {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 101px;
+    }
+  }
+}
